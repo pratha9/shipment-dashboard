@@ -29,14 +29,21 @@ class TableComponent extends Component{
                     </TableHead>
                     <TableBody>
                     {this.props.tableDetails.map(row => (
-                        <TableRow onClick={()=> {return this.props.setTimeLine(row._id)}} style={{cursor: "pointer"}}>
+                        <TableRow onClick={()=> {
+                        return this.props.setTimeLine(row._id)}} style={{cursor: "pointer"}}>
                         <TableCell align="center" component="th" scope="row" style={{ fontWeight: "bold"}}>#{row.awbno}</TableCell>
                         <TableCell align="center">{row.carrier}</TableCell>
                         <TableCell align="center">{row.from}</TableCell>
                         <TableCell align="center">{row.to}</TableCell>
-                        <TableCell align="center">{row.order_data}</TableCell>
-                        <TableCell align="center">{row.pickup_date}</TableCell>
-                        <TableCell align="center">{row.extra_fields ? row.extra_fields.expected_delivery_date : '-'}</TableCell>
+                        <TableCell align="center">{row.carrier}</TableCell>
+                        <TableCell align="center">{String(new Date(row.pickup_date).getDay() < 10 ? "0"+new Date(row.pickup_date).getDay() : new Date(row.pickup_date).getDay())
+                                                    +"/"+String(new Date(row.pickup_date).getMonth() < 10 ? "0"+new Date(row.pickup_date).getMonth() : new Date(row.pickup_date).getMonth())
+                                                    +"/"+String(new Date(row.pickup_date).getFullYear())}</TableCell>
+                        <TableCell align="center">{row.extra_fields ? String(new Date(row.extra_fields.expected_delivery_date).getDay() < 10 ? 
+                                                "0"+new Date(row.extra_fields.expected_delivery_date).getDay() : new Date(row.extra_fields.expected_delivery_date).getDay())
+                                                    +"/"+String(new Date(row.extra_fields.expected_delivery_date).getMonth() < 10 ? 
+                                                "0"+new Date(row.extra_fields.expected_delivery_date).getMonth() : new Date(row.extra_fields.expected_delivery_date).getMonth())
+                                                    +"/"+String(new Date(row.extra_fields.expected_delivery_date).getFullYear()): '-'}</TableCell>
                     <TableCell align="center">{ row.current_status === "Delivered" ? <span style={{color: "green"}}>Delivered</span> :  <span style={{color: "red"}}>{row.current_status}</span>}</TableCell>
                         </TableRow>
                     ))}

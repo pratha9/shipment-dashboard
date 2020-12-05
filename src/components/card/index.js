@@ -9,7 +9,7 @@ class Smallcard extends Component {
         return (
                 <Paper className="card" elevation={0} onClick = {() => {return this.props.setTable(this.props.category)}} >
                 <sup><b>{this.props.category}</b></sup>
-                <br /> <br /> <br />
+                <br /> <br />
                 <span className="count"><b>{this.props.count}</b></span>
                 </Paper>
         )
