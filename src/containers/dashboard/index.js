@@ -3,6 +3,8 @@ import {Timeline, TimelineEvent} from 'react-event-timeline'
 import Axios from 'axios'
 
 import Header from '../../components/headers'
+import Smallcard from '../../components/card'
+import Table from '../../components/table'
 
 
 class Dashboard extends Component {

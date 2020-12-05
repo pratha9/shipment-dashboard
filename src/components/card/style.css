@@ -1,0 +1,25 @@
+.card {
+    height: 115px;
+    width: 115px;
+    margin: 10px;
+    background-color: #ADD8E6 !important;
+    color: #2E5BFF !important;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.card:active {
+
+    background-color: #ADD8E6 !important;
+    border: 2px solid;
+    border-color: blue;
+}
+
+.count {
+    font-size: 50px;
+    font-weight: 300;
+    margin: auto;
+    float: right;
+}
